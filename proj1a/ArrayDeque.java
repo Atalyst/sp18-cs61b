@@ -33,6 +33,10 @@ public class ArrayDeque<T> {
 
     /*must take constant time.*/
     public T get(int index){
+        if(index <= 0 || index > size() + 1 || isEmpty()){
+            return null;
+        }
+        index = (index + nextFirst - 1) % items.length;
         return items[index];
     }
 
